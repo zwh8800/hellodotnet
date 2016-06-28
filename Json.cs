@@ -29,6 +29,20 @@ namespace Json
                     return false;
                 }
             }
+
+            public dynamic this [string index]
+            {
+                get {
+                    if (member.ContainsKey(index))
+                    {
+                        return member[index];
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
  
             private Dictionary<string, dynamic> member;
         }
