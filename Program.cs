@@ -12,8 +12,8 @@ namespace ConsoleApplication
             dynamic obj = Json.Json.Parse(data);
             Console.WriteLine("project version is {0}", obj.version);
             Console.WriteLine("project dependencies is {0}", obj.dependencies);
-            Console.WriteLine("project frameworks['netcoreapp1.0'].dnxcore50 is {0}", 
-                obj.frameworks["netcoreapp1.0"].dnxcore50);
+            Console.WriteLine("project frameworks['netcoreapp1.0'].imports is {0}", 
+                obj.frameworks["netcoreapp1.0"].imports);
             Console.WriteLine(obj);
         }
     }

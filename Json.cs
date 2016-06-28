@@ -30,17 +30,23 @@ namespace Json
                 }
             }
 
-            public dynamic this [string index]
+            public override bool TryGetIndex(GetIndexBinder binder, object[] indexes, out object result)
             {
-                get {
-                    if (member.ContainsKey(index))
-                    {
-                        return member[index];
-                    }
-                    else
-                    {
-                        return null;
-                    }
+                if (indexes.Length != 1)
+                {
+                    result = null;
+                    return false;
+                }
+                string index = indexes[0] as string;
+                if (member.ContainsKey(index))
+                {
+                    result = member[index];
+                    return true;
+                }
+                else
+                {
+                    result = null;
+                    return false;
                 }
             }
  
